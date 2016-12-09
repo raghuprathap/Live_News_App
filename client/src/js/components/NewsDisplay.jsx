@@ -1,8 +1,8 @@
-var React = require('react');
-var reactDOM = require('react-dom');
-var News = require('./News');
-var NewsDisplay = React.createClass({
-	render: function(){
+import React from 'react';
+import reactDOM from 'react-dom';
+import News from './News';
+export default class NewsDisplay extends React.Component{
+	render(){
 		var NewsComponent = this.props.newsData.map(function(news){
 			return(<News newsData={news}>
 
@@ -16,5 +16,4 @@ var NewsDisplay = React.createClass({
 		</div>
 		);
 	}
-});
-module.exports=NewsDisplay
+};

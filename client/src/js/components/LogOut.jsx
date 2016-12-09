@@ -1,9 +1,8 @@
-var React = require('react');
-var {browserHistory} = require('react-router');
+import React from 'react';
+import {browserHistory} from 'react-router';
 
-var LogOut = React.createClass({
-LogedUser: function()
-{
+export default class LogOut extends React.Component{
+LogedUser() {
   $.ajax({
     url:"/logout",
     type: 'GET',
@@ -19,13 +18,13 @@ LogedUser: function()
       console.log(err);
     }.bind(this)
   });
-},
-componentWillMount: function()
-{
+}
+
+componentWillMount() {
   this.LogedUser();
 }
-,
-  render: function(){
+
+  render(){
     return(
       <div>
         <div className="container-fluid">
@@ -44,6 +43,5 @@ componentWillMount: function()
 
     );
   }
-})
+}
 
-module.exports=LogOut;

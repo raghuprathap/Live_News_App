@@ -1,13 +1,11 @@
-var React = require('react');
-var BbcBox = React.createClass({
-UpdateComments : function(t)
-{
+import React from 'react';
+export default class BbcBox extends React.Component{
+UpdateComments(t) {
   console.log("typing..");
  this.setState({comments: t.target.value});
-},
+}
 
-handleAddNews: function()
- {
+handleAddNews() {
   console.log("added clicked");
    var newsInfo=this.props.valuedata;
    console.log(newsInfo);
@@ -50,11 +48,10 @@ handleAddNews: function()
                 console.log(err);
               }.bind(this)
             });
-},
+}
 
 
-render : function()
-{
+render() {
 return (
 
 
@@ -82,6 +79,4 @@ return (
 );
 }
 
-});
-
-module.exports=BbcBox;
+};

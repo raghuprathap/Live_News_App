@@ -1,8 +1,8 @@
-var React = require('react');
-var reactDOM = require('react-dom');
-var BbcBox = require('./BbcBox');
-var BbcNewsDisplay = React.createClass({
-	render: function(){
+import React from 'react';
+import reactDOM from 'react-dom';
+import BbcBox from './BbcBox';
+export default class BbcNewsDisplay extends React.Component{
+	render(){
 		var NewsComponent = this.props.newsData.map(function(news){
 			return(<BbcBox newsData={news}>
 
@@ -16,5 +16,4 @@ var BbcNewsDisplay = React.createClass({
 		</div>
 		);
 	}
-});
-module.exports=BbcNewsDisplay
+};

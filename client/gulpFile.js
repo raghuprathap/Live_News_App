@@ -6,9 +6,9 @@ var browserify = require('browserify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 
-gulp.task('browserify',function(){
+gulp.task('babelify',function(){
     browserify('./src/js/main.js')
-        .transform('reactify')
+        .transform('babelify', {presets: ['react', 'es2015']})
         .bundle()
         .pipe(source('main.js'))
         .pipe(gulp.dest('dist/js')) //we don't need to create this folder gulp will auto create this
@@ -25,6 +25,6 @@ gulp.task('copy',function(){
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('default',['browserify','copy'],function(){
-    return gulp.watch('src/**/*.*',['browserify','copy']);
+gulp.task('default',['babelify','copy'],function(){
+    return gulp.watch('src/**/*.*',['babelify','copy']);
 });

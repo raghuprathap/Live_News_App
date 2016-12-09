@@ -1,12 +1,13 @@
-var React = require('react');
-var NavBarComponent = require('./NavBarComponent');
-var NewsDisplay = require('./NewsDisplay');
-var Home = React.createClass({
+import React from 'react';
+import NavBarComponent from './NavBarComponent';
+import NewsDisplay from './NewsDisplay';
+export default class Home extends React.Component{
 
-  getInitialState: function(){
-    return {newsData:[]};
-  },
-  getNewsArticlesFromSources: function(){
+  constructor(props){
+    super(props);
+    this.state = {newsData:[]};
+  }
+  getNewsArticlesFromSources(){
     $.ajax({
     url:"https://newsapi.org/v1/sources?language=en",
     type: 'GET',
@@ -20,9 +21,9 @@ var Home = React.createClass({
       console.log(err);
     }.bind(this)
   });
-  },
+  }
 
-  render: function(){
+  render(){
     return(
       <div>
         <div className="container-fluid">
@@ -36,7 +37,7 @@ var Home = React.createClass({
           					Search articles from News sources
           				</p>
                   <p>
-          					<a className="btn btn-primary btn-large" onClick = {this.getNewsArticlesFromSources} >Search News</a>
+          					<a className="btn btn-primary btn-large" onClick = {this.getNewsArticlesFromSources.bind(this)} >Search News</a>
           				</p>
                   
           			</div>
@@ -48,6 +49,4 @@ var Home = React.createClass({
 
     );
   }
-})
-
-module.exports=Home;
+}

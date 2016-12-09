@@ -4,8 +4,8 @@ var router = express.Router();
 
 router.route("/add")
 .post(function(req, res) {
-  if(req.body)
-  {
+	console.log("Hello");
+  if(req.body){
     var userVar = new User();
     userVar.username=req.body.username;
     userVar.password=req.body.password;
